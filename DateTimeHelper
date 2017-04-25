@@ -1,0 +1,48 @@
+
+
+  List<DateTime> GetMonthDates(DateTime startDate, DateTime endDate)
+        {
+            List<DateTime> months = new List<DateTime>();
+
+            while (startDate <= endDate)
+            {
+                months.Add(startDate);
+                startDate=startDate.AddMonths(1);
+            }
+
+            return months;
+        }
+        List<DateTime> GetDatesInDateRange(DateTime startDate, DateTime endDate)
+        {
+            List<DateTime> dates = new List<DateTime>();
+
+            while (startDate <= endDate)
+            {
+                dates.Add(startDate);
+                startDate = startDate.AddDays(1.0);
+            }
+
+            return dates;
+        }
+
+
+        List<DateTime> GetDatesInDateRange(DateTime startDate, DateTime endDate, string[] days)
+        {
+            List<DateTime> dates = new List<DateTime>();
+
+            while (startDate <= endDate)
+            {
+                foreach (string day in days)
+                {
+                  
+                    if (startDate.ToString("ddd") == day)
+                    {
+                        dates.Add(startDate);
+                    }
+                }
+                //dates.Add(startDate);
+                startDate = startDate.AddDays(1.0);
+            }
+
+            return dates;
+        }
